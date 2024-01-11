@@ -1,6 +1,7 @@
+import { useState } from "react";
 import UseStateExample from "./pages/UseStateExample";
 import "./App.css";
-import { useState } from "react";
+
 function App() {
   const [counter, setCounter] = useState(0);
   const handleIncrement = () => {
