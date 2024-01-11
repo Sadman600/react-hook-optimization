@@ -1,7 +1,9 @@
 import { useState } from "react";
 import UseStateExample from "./pages/UseStateExample";
 import "./App.css";
-import { useState } from "react";
+import UseReducerExample from "./pages/UseReducerExample";
+import ContactUs from "./components/ContactUs";
+
 function App() {
   const [counter, setCounter] = useState(0);
   const handleIncrement = () => {
@@ -25,7 +27,7 @@ function App() {
       <div style={{ width: "1024px", margin: "0px auto" }}>
         <ContactUs />
       </div>
-      <div style={{ width: "1024px", margin: "0px auto" }}>
+      <div style={{ width: "1024px", margin: "10px auto 0px" }}>
         <UseReducerExample />
       </div>
     </>
