@@ -10,6 +10,20 @@ const ContactUs = () => {
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)
     }
+
+    // const handleChange = (name) => {
+    //     return (e) => {
+    //         console.log(e.target.value)
+    //     }
+    // }
+    const handleChange = (name) => (e) => {
+        if (name === "name") {
+            setName(e.target.value)
+        }
+        if (name === "email") {
+            setEmail(e.target.value)
+        }
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log({ name, email });
@@ -21,9 +35,9 @@ const ContactUs = () => {
         <div>
             <h1>Contact Us</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" name='name' id='name' onChange={handleChangeName} />
+                <input type="text" name='name' id='name' onChange={handleChange("name")} />
                 <br />
-                <input type="email" name="email" id="email" onChange={handleChangeEmail} />
+                <input type="email" name="email" id="email" onChange={handleChange("email")} />
                 <br />
                 <button type="submit" >submit</button>
             </form>
