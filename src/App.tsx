@@ -3,6 +3,8 @@ import UseStateExample from "./pages/UseStateExample";
 import "./App.css";
 import UseReducerExample from "./pages/UseReducerExample";
 import ContactUs from "./components/ContactUs";
+// import Todos from "./components/Todos";
+import FormTodos from "./components/FormTodos";
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -29,6 +31,9 @@ function App() {
       </div>
       <div style={{ width: "1024px", margin: "10px auto 0px" }}>
         <UseReducerExample />
+      </div>
+      <div style={{ width: "1024px", margin: "10px auto 0px" }}>
+        <FormTodos />
       </div>
     </>
   );
