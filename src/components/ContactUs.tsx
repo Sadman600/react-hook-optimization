@@ -1,34 +1,29 @@
 import React, { useState } from 'react';
 
 const ContactUs = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    // const [name, setName] = useState("");
+    // const [email, setEmail] = useState("");
 
-    const handleChangeName = (e) => {
-        setName(e.target.value)
-    }
-    const handleChangeEmail = (e) => {
-        setEmail(e.target.value)
-    }
-
-    // const handleChange = (name) => {
-    //     return (e) => {
-    //         console.log(e.target.value)
-    //     }
+    // const handleChangeName = (e) => {
+    //     setName(e.target.value)
     // }
-    const handleChange = (name) => (e) => {
+    // const handleChangeEmail = (e) => {
+    //     setEmail(e.target.value)
+    // }
+    const [user, setUser] = useState({ name: '', email: '' })
+    const handleChange = (name:string) => (e:React.ChangeEvent<HTMLInputElement>) => {
         if (name === "name") {
-            setName(e.target.value)
+            // setName(e.target.value)
+            setUser({ ...user, name: e.target.value })
         }
         if (name === "email") {
-            setEmail(e.target.value)
+            // setEmail(e.target.value)
+            setUser({ ...user, email: e.target.value })
         }
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log({ name, email });
-
-
+        console.log(user);
     }
 
     return (
