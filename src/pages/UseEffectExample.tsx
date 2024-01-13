@@ -3,25 +3,40 @@ import React, { useEffect, useState } from 'react';
 
 const UseEffectExample = () => {
     const [hide, setHide] = useState(false);
-    const [count, setCount] = useState(0);
 
-    useEffect(() => {
-        setInterval(() => {
-            // console.log(count);
-            
-            // setCount((preCount)=> preCount + 1)
-        }, 1000)
-    }, [count])
     return (
         <div>
-            <h1>{count}</h1>
+
             <Button
-                onClick={() => setHide(!hide)}
-                variant='outlined'>
-                Click
+                onClick={() => setHide((prev) => !prev)}
+                variant='outlined'
+            >
+                {hide ? "show" : "hide "}
             </Button>
+            {
+                !hide && <LoadData />
+            }
         </div>
     );
 };
+
+const LoadData = () => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/posts', { signal })
+            .then((res) => res.json())
+            .then((data) => alert(data.title));
+        return () => {
+            controller.abort();
+        }
+    }, [])
+
+    return (
+        <>
+            <div>Todo</div>
+        </>
+    )
+}
 
 export default UseEffectExample;
